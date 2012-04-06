@@ -1,6 +1,6 @@
-# RgStats
+# RubyGems Statistic
 
-Get download statistic of your gems on RubyGems with a push of a button. So you can stop wasting time looking it up in browser...
+Get download statistic of your gems on RubyGems with a push of a button and stop wasting time looking it up in browser...
 
 ## Installation
 
