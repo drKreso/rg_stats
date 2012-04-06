@@ -1,24 +1,20 @@
 # RgStats
 
-TODO: Write a gem description
+Get download statistic of your gems on RubyGems with a push of a button. So you can stop wasting time looking it up in browser...
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'rg_stats'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install rg_stats
+  $ gem install rg_stats
 
 ## Usage
 
-TODO: Write usage instructions here
+  $ rg_stats your_user_name
+
+## Caveat 
+
+User name is case sensitive for example mine is 
+
+  $ rg_stats drKreso
 
 ## Contributing
 
