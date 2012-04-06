@@ -1,5 +1,3 @@
 require "rg_stats/version"
+require "rg_stats/statistic"
 
-module RgStats
-  # Your code goes here...
-end
