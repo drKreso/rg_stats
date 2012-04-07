@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rg_stats (0.0.1)
+    rg_stats (1.0.1)
 
 GEM
   remote: https://rubygems.org/

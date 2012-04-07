@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 gemspec
 
 gem "json"
-gem "yaml"
 
 group :development do
   gem "rspec", '~> 2.9.0'
