@@ -10,6 +10,12 @@ Get download statistic of your gems on RubyGems with a push of a button and stop
 
   $ rg_stats your_user_name
 
+You can use it for multiple accounts 
+
+  $ rg_stats drKreso rsim
+
+It will remember number of downloads since the last time you've checked. So you can spy on your competition...
+
 ## Caveat 
 
 User name is case sensitive for example mine is 
