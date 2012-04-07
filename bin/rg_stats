@@ -26,7 +26,15 @@ if user_name.nil?
 end
 
 url =  "https://rubygems.org/api/v1/owners/#{user_name}/gems.json"
-data_as_json = open(url)
+begin
+  data_as_json = open(url)
+rescue SocketError => e
+  puts "It seems connection is not available. (#{e.message})"
+  exit
+rescue OpenURI::HTTPError => e
+  puts "User #{user_name} has not been found. (#{e.message})"
+  exit
+end
 old_data = PersistDataBetweenSessions.load
 old_map = {} 
 old_data.each do |old_gem_info|
