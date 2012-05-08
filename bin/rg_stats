@@ -6,13 +6,24 @@ require_relative '../lib/rg_stats/statistic'
 
 class PersistDataBetweenSessions
 
-    STORAGE_NAME = "/tmp/ruby_gems_sync.yaml"
+    HOME_FOLDER = "#{ENV['HOME']}/.rg_stats"
+    STORAGE_NAME = "ruby_gems_sync.yaml"
     def self.load
-      File.exists?(STORAGE_NAME) ? File.open(STORAGE_NAME, "r") { |file| YAML.load(file) } : []
+      self.check_home_folder
+      File.exists?(self.FILE_NAME) ? File.open(self.FILE_NAME, "r") { |file| YAML.load(file) } : []
     end
 
     def self.save(list)
-      File.open(STORAGE_NAME, "w") {|file| file.puts(list.to_yaml) }
+      self.check_home_folder
+      File.open(self.FILE_NAME, "w") {|file| file.puts(list.to_yaml) }
+    end
+
+    def self.check_home_folder
+      Dir::mkdir(HOME_FOLDER) unless File.exists?(HOME_FOLDER) 
+    end
+
+    def self.FILE_NAME
+      "#{HOME_FOLDER}/#{STORAGE_NAME}"
     end
 end
 
