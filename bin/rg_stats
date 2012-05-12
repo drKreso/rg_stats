@@ -66,9 +66,10 @@ ARGV.each do |user_name|
   total_downloads = stat.gem_infos.reduce(0) { |sum, gem_info| sum + gem_info[1] }
   last_total_downloads = stat.gem_infos.reduce(0) { |sum, gem_info| sum + (old_map[gem_info[0]].nil? ? 0 : old_map[gem_info[0]]) }
   total_diff = total_downloads - last_total_downloads
+  diff_text = total_diff > 0 ?  ", \e[32m+#{stat.number_with_delimiter(total_diff)}\e[0m since last check" : ""
 
   puts ""
-  puts "\e[32m#{user_name}\e[0m   (Total downloads: #{stat.number_with_delimiter(total_downloads)}, \e[32m+#{stat.number_with_delimiter(total_diff)}\e[0m since last check)"
+  puts "\e[32m#{user_name}\e[0m   (Total downloads: #{stat.number_with_delimiter(total_downloads)}#{diff_text})"
   puts "-" *(stat.max_gem_name_size + 30)
   stat.gem_infos.each do |gem_info|
     number_of_changes = gem_info[1] - (old_map[gem_info[0]].nil? ? 0 : old_map[gem_info[0]])
