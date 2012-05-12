@@ -14,4 +14,8 @@ class Statistic
   def max_gem_name_size
     gem_infos.map { |info| info[0].size }.sort[-1]
   end
+
+  def number_with_delimiter(number, delimiter=",")
+    number.to_s.gsub(/(\d)(?=(\d\d\d)+(?!\d))/, "\\1#{delimiter}")
+  end
 end
