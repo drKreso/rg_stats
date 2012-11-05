@@ -1,4 +1,5 @@
 # RubyGems Statistic
+[![Build Status](https://travis-ci.org/drKreso/rg_stats.png)](https://travis-ci.org/drKreso/rg_stats)
 
 Get download statistic of your gems on RubyGems with a push of a button and stop wasting time looking it up in browser...
 
