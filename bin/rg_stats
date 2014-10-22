@@ -1,8 +1,17 @@
 #!/usr/bin/env ruby
 require 'open-uri'
 require 'yaml'
+require 'openssl'
 
 require_relative '../lib/rg_stats/statistic'
+
+def with_warnings(flag)
+    old_verbose, $VERBOSE = $VERBOSE, flag
+      yield
+ensure
+    $VERBOSE = old_verbose
+end
+with_warnings(nil) { OpenSSL::SSL.const_set(:VERIFY_PEER, OpenSSL::SSL::VERIFY_NONE)  }
 
 class PersistDataBetweenSessions
 
@@ -39,6 +48,7 @@ ARGV.each do |user_name|
   url =  "https://rubygems.org/api/v1/owners/#{user_name}/gems.json"
   begin
     data_as_json = open(url)
+
   rescue SocketError => e
     puts "It seems connection is not available. (#{e.message})"
     exit
